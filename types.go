@@ -28,6 +28,7 @@ type Address struct {
 	Street     string `json:",omitempty"`
 	Number     string `json:",omitempty"`
 	Complement string `json:",omitempty"`
+	District   string `json:",omitempty"`
 	ZipCode    string `json:",omitempty"`
 	City       string `json:",omitempty"`
 	State      string `json:",omitempty"`
@@ -44,6 +45,7 @@ type Payment struct {
 	Recurrent           bool              `json:",omitempty"`
 	RecurrentPayment    *RecurrentPayment `json:",omitempty"`
 	CreditCard          *CreditCard       `json:",omitempty"`
+	DebitCard           *DebitCard        `json:",omitempty"`
 	Tid                 string            `json:",omitempty"`
 	ProofOfSale         string            `json:",omitempty"`
 	AuthorizationCode   string            `json:",omitempty"`
@@ -69,6 +71,7 @@ type Payment struct {
 	BarCodeNumber       string            `json:",omitempty"`
 	DigitableLine       string            `json:",omitempty"`
 	Address             string            `json:",omitempty"`
+	Instructions        string            `json:",omitempty"`
 }
 
 // RecurrentPayment is used to configure recurrent payments
@@ -88,6 +91,17 @@ type environment struct {
 
 // CreditCard holds credit card informations
 type CreditCard struct {
+	CardNumber     string `json:",omitempty"`
+	Holder         string `json:",omitempty"`
+	ExpirationDate string `json:",omitempty"`
+	SecurityCode   string `json:",omitempty"`
+	SaveCard       bool   `json:",omitempty"`
+	Brand          string `json:",omitempty"`
+	CardToken      string `json:",omitempty"`
+}
+
+// DebitCard holds credit card informations
+type DebitCard struct {
 	CardNumber     string `json:",omitempty"`
 	Holder         string `json:",omitempty"`
 	ExpirationDate string `json:",omitempty"`
